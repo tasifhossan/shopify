@@ -86,7 +86,7 @@ const ProductsCarousel = ({
               ))
             ) : (
               <>
-                {products?.map((product, idx) => (
+                {Array.isArray(products) && products.map((product, idx) => (
                   <SwiperSlide
                     key={`${uniqueKey}-${idx}`}
                     className="px-1.5 md:px-2 xl:px-2.5 py-4"

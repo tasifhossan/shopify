@@ -1,16 +1,12 @@
+import { Inter, Manrope } from 'next/font/google';
 import ManagedModal from '@components/common/modal/managed-modal';
 import { ManagedUIContext } from '@contexts/ui.context';
-import { Inter, Manrope } from 'next/font/google';
-import { dir } from 'i18next';
-import { languages } from '../i18n/settings';
 import ManagedDrawer from '@components/common/drawer/managed-drawer';
-import ToasterProvider from 'src/app/provider/toaster-provider';
-import Providers from 'src/app/provider/provider';
+import ToasterProvider from '../provider/toaster-provider';
+import Providers from '../provider/provider';
+import AntiqueRefinedLayout from '@layouts/antique-refined/layout'; // IMPORTED HERE
 
-// external
-import 'react-toastify/dist/ReactToastify.css';
-
-// base css file
+// Global Styles
 import '@assets/css/scrollbar.css';
 import '@assets/css/swiper-carousel.css';
 import '@assets/css/custom-plugins.css';
@@ -18,48 +14,48 @@ import './globals.css';
 import '@assets/css/rc-drawer.css';
 
 const inter = Inter({
-    weight: ['400', '500', '600', '700'],
-    subsets: ['latin'],
-    display: 'swap',
-    variable: '--font-inter',
+  weight: ['400', '500', '600', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
 });
 
 const manrope = Manrope({
-    weight: ['400', '500', '600', '700', '800'],
-    subsets: ['latin'],
-    display: 'swap',
-    variable: '--font-manrope',
+  weight: ['400', '500', '600', '700', '800'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-manrope',
 });
 
 export const metadata = {
-    title: {
-        template: 'BoroBazar | %s',
-        default: 'BoroBazar',
-    },
+  title: {
+    template: 'BoroBazar | %s',
+    default: 'BoroBazar',
+  },
 };
 
-export async function generateStaticParams() {
-    return languages.map((lang) => ({ lang }));
-}
-
 export default async function RootLayout({ children, params }) {
-    const { lang } = await params;
-
-    return (
-        <html lang={lang} dir={dir(lang)} suppressHydrationWarning={true}>
-            <body
-                className={`${inter.variable} ${manrope.variable}`}
-                suppressHydrationWarning={true}
-            >
-                <Providers>
-                    <ManagedUIContext>
-                        {children}
-                        <ManagedModal lang={lang} />
-                        <ManagedDrawer lang={lang} />
-                        <ToasterProvider />
-                    </ManagedUIContext>
-                </Providers>
-            </body>
-        </html>
-    );
+  const { lang } = await params; // Get lang for the layout
+  
+  return (
+    <html lang={lang} dir="ltr" suppressHydrationWarning={true}>
+      <body
+        className={`${inter.variable} ${manrope.variable}`}
+        suppressHydrationWarning={true}
+      >
+        <Providers>
+          <ManagedUIContext>
+            {/* WRAPPED EVERYTHING IN ANTIQUE LAYOUT */}
+            <AntiqueRefinedLayout lang={lang}>
+              {children}
+            </AntiqueRefinedLayout>
+            
+            <ManagedModal />
+            <ManagedDrawer />
+            <ToasterProvider />
+          </ManagedUIContext>
+        </Providers>
+      </body>
+    </html>
+  );
 }

@@ -1,3 +1,5 @@
+@reference "../../app/globals.css";
+
 .mask-motion-enter-active,
 .mask-motion-appear-active,
 .mask-motion-leave-active {

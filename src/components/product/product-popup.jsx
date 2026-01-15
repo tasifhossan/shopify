@@ -149,7 +149,7 @@ export default function ProductPopup({ lang }) {
                 <div className="flex items-center justify-center w-auto">
                   <Image
                     src={image?.original ?? productGalleryPlaceholder}
-                    alt={name}
+                    alt={name || 'Product Image'}
                     width={650}
                     height={590}
                     style={{ width: 'auto' }}
@@ -329,7 +329,7 @@ export default function ProductPopup({ lang }) {
                   {t('text-product-details')}:
                 </Heading>
                 <Text variant="small">
-                  {description.split(' ').slice(0, 40).join(' ')}
+                  {description ? description.split(' ').slice(0, 40).join(' ') : ''}
                   {'...'}
                   <span
                     onClick={navigateToProductPage}

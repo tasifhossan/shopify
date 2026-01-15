@@ -20,6 +20,8 @@ const Logo = ({
             <Image
                 src={siteSettings.logo.url}
                 alt={siteSettings.logo.alt}
+                width={siteSettings.logo.width || 128}  // Ensure these exist
+                height={siteSettings.logo.height || 30}
                 loading="eager"
             />
         </Link>

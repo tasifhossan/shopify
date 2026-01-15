@@ -80,9 +80,9 @@ const RefinedAllProductFeed = ({
                   <Fragment key={index}>
                     {page?.data
                       ?.slice(0, LIMITS.REFINED_PRODUCTS_LIMITS)
-                      ?.map((product) => (
+                      ?.map((product, index) => (
                         <ProductCardAlpine
-                          key={`product--key${product.id}`}
+                          key={`product-alpine-${product?.slug || index}-${index}`}
                           product={product}
                           lang={lang}
                         />

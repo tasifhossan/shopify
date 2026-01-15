@@ -1,26 +1,28 @@
+'use client';
+
 import Link from 'next/link';
-import React, { Children } from 'react';
+import { usePathname } from 'next/navigation';
+import React from 'react';
 
 const ActiveLink = ({
     children,
-    lang,
     activeClassName,
     href,
+    className: baseClassName = '',
     ...props
 }) => {
-    const child = Children.only(children);
-    const childClassName = child.props.className || '';
+    const pathname = usePathname();
+    
+    // Logic to determine if the link is active
+    // This checks if the current URL matches the href
+    const isActive = pathname === href || pathname.startsWith(`${href}/`);
 
-    const className =
-        lang === href
-            ? `${childClassName} ${activeClassName}`.trim()
-            : childClassName;
+    // Combine classes: base class + active class (if active)
+    const combinedClassName = `${baseClassName} ${isActive ? activeClassName : ''}`.trim();
 
     return (
-        <Link href={href} {...props}>
-            {React.cloneElement(child, {
-                className: className || null,
-            })}
+        <Link href={href} className={combinedClassName} {...props}>
+            {children}
         </Link>
     );
 };

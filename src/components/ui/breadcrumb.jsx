@@ -67,29 +67,27 @@ const Breadcrumb = ({
     const { t } = useTranslation(lang, 'common');
     return (
         <BreadcrumbItems separator={separator}>
+            {/* 1. FIXED HOME LINK: Removed legacyBehavior and <a> */}
             <ActiveLink
-                legacyBehavior
                 href={`${ROUTES.HOME}${lang}`}
                 activeClassName="font-semibold text-heading"
+                className="inline-flex items-center"
                 lang={lang}
             >
-                <a className="inline-flex items-center">
-                    <IoHomeOutline className="ltr:mr-1.5 rtl:ml-1.5 text-brand-dark text-15px" />
-                    {t('breadcrumb-home')}
-                </a>
+                <IoHomeOutline className="ltr:mr-1.5 rtl:ml-1.5 text-brand-dark text-15px" />
+                {t('breadcrumb-home')}
             </ActiveLink>
 
+            {/* 2. FIXED DYNAMIC LINKS: Removed legacyBehavior and <a> */}
             {breadcrumbs?.map((breadcrumb) => (
                 <ActiveLink
                     href={breadcrumb.href}
                     activeClassName="font-semibold text-heading"
+                    className="capitalize"
                     key={breadcrumb.href}
-                    legacyBehavior
                     lang={lang}
                 >
-                    <a className="capitalize">
-                        {convertBreadcrumbTitle(breadcrumb.breadcrumb)}
-                    </a>
+                    {convertBreadcrumbTitle(breadcrumb.breadcrumb)}
                 </ActiveLink>
             ))}
         </BreadcrumbItems>

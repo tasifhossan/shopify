@@ -4,7 +4,6 @@ import { CNFlag } from '@components/icons/language/CNFlag';
 import { USFlag } from '@components/icons/language/USFlag';
 import { DEFlag } from '@components/icons/language/DEFlag';
 import { ESFlag } from '@components/icons/language/ESFlag';
-import siteLogo from 'public/assets/images/logo.svg';
 
 export const siteSettings = {
     name: 'BoroBazar',
@@ -16,7 +15,7 @@ export const siteSettings = {
         address: '',
     },
     logo: {
-        url: siteLogo,
+        url: '/assets/images/logo.svg',
         alt: 'BoroBazar',
         href: '/en',
         width: 128,
