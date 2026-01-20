@@ -21,7 +21,7 @@ const Modal = ({
                 onClose={onClose}
             >
                 <div
-                    className={cn('min-h-screen lg:px-4 text-center', {
+                    className={cn('min-h-screen lg:px-4 text-center whitespace-nowrap', {
                         'flex justify-center items-end': variant === 'bottom',
                     })}
                 >
@@ -79,7 +79,7 @@ const Modal = ({
                             leaveFrom="opacity-100 scale-100"
                             leaveTo="opacity-0 scale-110"
                         >
-                            <DialogPanel className="relative z-50 inline-block w-full p-4 overflow-hidden align-middle transition-all transform md:w-auto md:p-6 xl:p-8 ltr:text-left rtl:text-right">
+                            <DialogPanel className="relative z-50 inline-block w-full p-4 overflow-hidden align-middle transition-all transform md:w-auto md:p-6 xl:p-8 ltr:text-left rtl:text-right whitespace-normal">
                                 <div className="relative rounded-md">
                                     <button
                                         onClick={onClose}

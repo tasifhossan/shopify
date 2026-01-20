@@ -31,7 +31,7 @@ const CallToActionMoscow = ({
                             {t(description)}
                         </p>
                         <Link
-                            href={`/${lang}`}
+                            href={`/`}
                             className="inline-flex items-center gap-[10px] transition duration-200 ease-in hover:box-shadow hover:opacity-80 bg-brand px-8 lg:py-5 py-3.5 text-white font-semibold rounded-full"
                         >
                             Order More <ArrowRight />

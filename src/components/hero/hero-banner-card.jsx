@@ -83,7 +83,7 @@ export default function HeroBannerCard({
           </p>
           {variant !== 'antique' && banner.btnText && (
             <Link
-              href={`/${lang}${banner.btnUrl}`}
+              href={`${banner.btnUrl}`}
               className="h-11.25 mt-7 md:mt-8 text-sm inline-flex items-center justify-center transition duration-300 rounded px-6 py-2 font-semibold bg-brand-light text-brand-dark hover:text-brand-light hover:bg-brand"
             >
               {t(banner.btnText)}

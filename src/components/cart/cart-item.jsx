@@ -22,7 +22,7 @@ const CartItem = ({ lang, item }) => {
     >
       <div className="relative flex rounded overflow-hidden shrink-0 cursor-pointer w-[90px] md:w-[100px] h-[90px] md:h-[100px]">
         <Image
-          src={item?.image ?? '/assets/placeholder/cart-item.svg'}
+          src={item?.image?.thumbnail ?? item?.image ?? '/assets/placeholder/cart-item.svg'}
           width={100}
           height={100}
           loading="eager"
@@ -42,7 +42,7 @@ const CartItem = ({ lang, item }) => {
       <div className="flex items-start justify-between w-full overflow-hidden">
         <div className="ltr:pl-3 rtl:pr-3 md:ltr:pl-4 md:rtl:pr-4">
           <Link
-            href={`/${lang}${ROUTES.PRODUCT}/${item?.slug}`}
+            href={`${ROUTES.PRODUCT}/${item?.slug}`}
             className="block leading-5 transition-all text-brand-dark text-13px sm:text-sm lg:text-15px hover:text-brand"
           >
             {item?.name}

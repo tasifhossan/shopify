@@ -36,7 +36,7 @@ export default function AccountNavMobile({ options, lang }) {
 
   function handleItemClick(option) {
     setSelectedItem(option);
-    router.push(`/${lang}${option.slug}`);
+    router.push(`${option.slug}`);
   }
 
   const { mutate: logout } = useLogoutMutation(lang);
@@ -47,7 +47,7 @@ export default function AccountNavMobile({ options, lang }) {
         <div className="relative w-full font-body">
           <ListboxButton className="relative flex items-center w-full p-4 border rounded cursor-pointer text-brand-dark md:p-5 ltr:text-left rtl:text-right focus:outline-none border-border-base bg-brand-light">
             <span className="flex items-center shrink-0">
-               {selectedItem?.icon}
+              {selectedItem?.icon}
             </span>
             <span className="flex truncate items-center text-sm md:text-15px font-medium ltr:pl-2.5 rtl:pr-2.5 relative">
               {t(selectedItem?.name)}
@@ -73,8 +73,7 @@ export default function AccountNavMobile({ options, lang }) {
                 <ListboxOption
                   key={`account-nav-key-${index}`}
                   className={({ active }) =>
-                    `cursor-pointer relative py-3 px-4 md:px-5 transition-colors ${
-                      active ? 'text-brand-dark bg-fill-dropdown-hover' : 'text-brand-muted'
+                    `cursor-pointer relative py-3 px-4 md:px-5 transition-colors ${active ? 'text-brand-dark bg-fill-dropdown-hover' : 'text-brand-muted'
                     }`
                   }
                   value={option}
@@ -85,9 +84,8 @@ export default function AccountNavMobile({ options, lang }) {
                         {option?.icon}
                       </span>
                       <span
-                        className={`block truncate ltr:pl-2.5 rtl:pr-2.5 md:ltr:pl-3 md:rtl:pr-3 ${
-                          selected ? 'font-semibold text-brand-dark' : 'font-normal'
-                        }`}
+                        className={`block truncate ltr:pl-2.5 rtl:pr-2.5 md:ltr:pl-3 md:rtl:pr-3 ${selected ? 'font-semibold text-brand-dark' : 'font-normal'
+                          }`}
                       >
                         {t(option?.name)}
                       </span>
@@ -95,7 +93,7 @@ export default function AccountNavMobile({ options, lang }) {
                   )}
                 </ListboxOption>
               ))}
-              
+
               {/* Divider for Logout */}
               <div className="w-full h-px bg-border-base my-1" />
 

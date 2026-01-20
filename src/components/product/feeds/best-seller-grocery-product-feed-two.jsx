@@ -74,24 +74,24 @@ const BestSellerGroceryProductFeedTwo = ({ className, lang }) => {
       <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-2 3xl:grid-cols-3 md:gap-4 2xl:gap-5">
         {!data?.length && isLoading
           ? Array.from({ length: limit }).map((_, idx) => (
-              <ProductCardLoader
-                key={`popular-product-${idx}`}
-                uniqueKey={`popular-product-${idx}`}
-              />
-            ))
+            <ProductCardLoader
+              key={`popular-product-${idx}`}
+              uniqueKey={`popular-product-${idx}`}
+            />
+          ))
           : data
-              ?.slice(1, 10)
-              ?.map((product) => (
-                <ProductCardMaple
-                  product={product}
-                  key={`popular-product-${product.id}`}
-                  lang={lang}
-                />
-              ))}
+            ?.slice(1, 10)
+            ?.map((product) => (
+              <ProductCardMaple
+                product={product}
+                key={`popular-product-${product.id}`}
+                lang={lang}
+              />
+            ))}
       </div>
       <div className="flex justify-center mt-6 md:mt-8">
         <Link
-          href={`/${lang}${ROUTES?.SEARCH}`}
+          href={`${ROUTES?.SEARCH}`}
           className="text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-body font-semibold text-center justify-center rounded placeholder-white focus-visible:outline-none focus:outline-none h-12 bg-brand text-brand-light tracking-[0.2px] px-5 md:px-6 lg:px-8 py-4 md:py-3.5 lg:py-4 hover:text-white hover:bg-opacity-90"
         >
           {t('text-view-all')}

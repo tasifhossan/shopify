@@ -10,19 +10,19 @@ const initI18next = async (lang, ns) => {
         .use(
             resourcesToBackend(
                 (language, namespace) =>
-                    import(`./locales/${language}/${namespace}.json`),
+                    import(`./locales/en/${namespace}.json`), // Force 'en'
             ),
         )
-        .init(getOptions(lang, ns));
+        .init(getOptions('en', ns)); // Force 'en'
     return i18nInstance;
 };
 
 export async function useTranslation(lang, ns, options) {
-    const i18nextInstance = await initI18next(lang, ns);
+    const i18nextInstance = await initI18next('en', ns); // Force 'en'
     return {
         //@ts-ignore
         t: i18nextInstance.getFixedT(
-            lang,
+            'en', // Force 'en'
             Array.isArray(ns) ? ns[0] : ns,
             //@ts-ignore
             options?.keyPrefix,

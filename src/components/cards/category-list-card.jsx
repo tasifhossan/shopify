@@ -13,9 +13,9 @@ const CategoryListCard = ({
 }) => {
   const { name, icon } = category;
   const { t } = useTranslation(lang, 'common');
-  
+
   return (
-    <Link href={`/${lang}${href}`} legacyBehavior>
+    <Link href={`${href}`} legacyBehavior>
       <a
         className={cn(
           'group flex transition',
@@ -31,9 +31,8 @@ const CategoryListCard = ({
         )}
       >
         <div
-          className={`${
-            variant === 'antique' ? 'w-full text-center' : 'flex items-center'
-          }`}
+          className={`${variant === 'antique' ? 'w-full text-center' : 'flex items-center'
+            }`}
         >
           <div
             className={cn(
@@ -59,11 +58,10 @@ const CategoryListCard = ({
             />
           </div>
           <h3
-            className={`text-15px text-brand-dark capitalize ${
-              variant === 'antique'
+            className={`text-15px text-brand-dark capitalize ${variant === 'antique'
                 ? 'font-medium py-5'
                 : 'ltr:pl-2.5 rtl:pr-2.5  md:ltr:pl-4 md:rtl:pr-4 2xl:ltr:pl-3 2xl:rtl:pr-3 3xl:ltr:pl-4 3xl:rtl:pr-5'
-            }`}
+              }`}
           >
             {name}
           </h3>

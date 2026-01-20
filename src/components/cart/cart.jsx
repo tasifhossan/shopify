@@ -74,7 +74,7 @@ export default function Cart({ lang }) {
         </div>
         <div className="flex flex-col" onClick={closeDrawer}>
           <Link
-            href={isEmpty === false ? `/${lang}${ROUTES.CHECKOUT}` : `/${lang}`}
+            href={isEmpty === false ? `${ROUTES.CHECKOUT}` : `/`}
             className={cn(
               'w-full px-5 py-3 md:py-4 flex items-center justify-center bg-heading rounded font-semibold text-sm sm:text-15px text-brand-light bg-brand focus:outline-none transition duration-300 hover:bg-opacity-90',
               {

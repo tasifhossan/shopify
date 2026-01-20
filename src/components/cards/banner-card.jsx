@@ -23,7 +23,7 @@ const BannerCard = ({
   return (
     <div className={cn('mx-auto', className)}>
       <Link
-        href={`/${lang}${slug}`}
+        href={`${slug}`}
         className={cn(
           'h-full group flex justify-center relative overflow-hidden',
           classNameInner,

@@ -6,23 +6,23 @@ import { DEFlag } from '@components/icons/language/DEFlag';
 import { ESFlag } from '@components/icons/language/ESFlag';
 
 export const siteSettings = {
-    name: 'BoroBazar',
+    name: 'Shopify',
     description:
-        'Fastest E-commerce template built with React, NextJS, TypeScript, TanStack-React-Query and Tailwind CSS.',
+        'Fastest E-commerce template built with React, NextJS, Shopify, TanStack-React-Query and Tailwind CSS.',
     author: {
-        name: 'REDQ',
-        websiteUrl: 'https://redq.io',
+        name: 'Tasif, Meheraj, Tarek',
+        websiteUrl: 'https://tasif-portfolio.vercel.app/',
         address: '',
     },
     logo: {
         url: '/assets/images/logo.svg',
-        alt: 'BoroBazar',
-        href: '/en',
+        alt: 'Shopify',
+        href: '/',
         width: 128,
         height: 30,
     },
     defaultLanguage: 'en',
-    currencyCode: 'USD',
+    currencyCode: 'BDT',
     site_header: {
         menu: [
             {
@@ -218,41 +218,11 @@ export const siteSettings = {
         ],
         languageMenu: [
             {
-                id: 'ar',
-                name: 'عربى - AR',
-                value: 'ar',
-                icon: <SAFlag />,
-            },
-            {
-                id: 'zh',
-                name: '中国人 - ZH',
-                value: 'zh',
-                icon: <CNFlag />,
-            },
-            {
                 id: 'en',
                 name: 'English - EN',
                 value: 'en',
                 icon: <USFlag />,
-            },
-            {
-                id: 'de',
-                name: 'Deutsch - DE',
-                value: 'de',
-                icon: <DEFlag />,
-            },
-            {
-                id: 'he',
-                name: 'rעברית - HE',
-                value: 'he',
-                icon: <ILFlag />,
-            },
-            {
-                id: 'es',
-                name: 'Español - ES',
-                value: 'es',
-                icon: <ESFlag />,
-            },
+            }
         ],
         pagesMenu: [
             {

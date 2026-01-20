@@ -6,7 +6,7 @@ const SeeAll = ({ lang, className, href = '/' }) => {
     const { t } = useTranslation(lang, 'common');
     return (
         <Link
-            href={`/${lang}/${href}`}
+            href={`/${href}`}
             className={`${className} p-4 flex items-center justify-center flex-col hover:opacity-80`}
         >
             <ArrowIcon color="#02B290" className="w-10" />

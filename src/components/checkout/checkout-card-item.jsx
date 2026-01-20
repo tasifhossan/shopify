@@ -11,7 +11,7 @@ export const CheckoutItem = ({ item }) => {
         <div className="flex items-center py-4 border-b border-border-base ">
             <div className="flex w-16 h-16 border rounded-md border-border-base shrink-0">
                 <Image
-                    src={item.image ?? '/assets/placeholder/order-product.svg'}
+                    src={item?.image?.thumbnail ?? item?.image ?? '/assets/placeholder/order-product.svg'}
                     alt={'item image'}
                     className="rounded-md ltr:mr-5 rtl:ml-5"
                     width={64}

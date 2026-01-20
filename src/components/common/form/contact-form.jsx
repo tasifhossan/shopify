@@ -18,7 +18,7 @@ const ContactForm = ({ lang }) => {
         console.log(values, 'Contact');
     }
 
-    const { t } = useTranslation(lang);
+    const { t } = useTranslation(lang, ['common', 'forms']);
     const mounted = useIsMounted();
 
     return (

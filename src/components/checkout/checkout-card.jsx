@@ -29,7 +29,7 @@ const CheckoutCard = ({ lang }) => {
         currencyCode: 'USD',
     });
     function orderHeader() {
-        !isEmpty && router.push(`/${lang}${ROUTES.ORDER}`);
+        !isEmpty && router.push(`${ROUTES.ORDER}`);
     }
     const checkoutFooter = [
         {
@@ -66,10 +66,10 @@ const CheckoutCard = ({ lang }) => {
                     </div>
                 ) : !isEmpty && mounted ? (
                     items.map((item, index) => (
-                    <CheckoutItem 
-                        item={item} 
-                        key={`checkout-item-${item.id || index}`} 
-                    />
+                        <CheckoutItem
+                            item={item}
+                            key={`checkout-item-${item.id || index}`}
+                        />
                     ))
                 ) : (
                     <p className="py-4 text-brand-danger text-opacity-70">
@@ -95,15 +95,15 @@ const CheckoutCard = ({ lang }) => {
             </div>
             <Text className="mt-8">
                 {t('text-by-placing-your-order')}{' '}
-                <Link 
-                    href={`/${lang}${ROUTES.TERMS}`} 
+                <Link
+                    href={`${ROUTES.TERMS}`}
                     className="font-medium underline text-brand"
                 >
                     {t('text-terms-of-service')}{' '}
                 </Link>
                 {t('text-and')}{' '}
-                <Link 
-                    href={`/${lang}${ROUTES.PRIVACY}`} 
+                <Link
+                    href={`${ROUTES.PRIVACY}`}
                     className="font-medium underline text-brand"
                 >
                     {t('text-privacy-policy')}

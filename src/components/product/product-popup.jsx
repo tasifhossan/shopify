@@ -66,7 +66,7 @@ export default function ProductPopup({ lang }) {
 
   const variations = getVariations(data.variations);
   const { slug, image, name, unit, description, gallery, tag, quantity } = data;
-  const productUrl = `${process.env.NEXT_PUBLIC_WEBSITE_URL}/${lang}${ROUTES.PRODUCT}/${slug}`;
+  const productUrl = `${process.env.NEXT_PUBLIC_WEBSITE_URL}${ROUTES.PRODUCT}/${slug}`;
 
   const handleChange = () => {
     setShareButtonStatus(!shareButtonStatus);
@@ -74,9 +74,9 @@ export default function ProductPopup({ lang }) {
 
   const isSelected = !isEmpty(variations)
     ? !isEmpty(attributes) &&
-      Object.keys(variations).every((variation) =>
-        attributes.hasOwnProperty(variation),
-      )
+    Object.keys(variations).every((variation) =>
+      attributes.hasOwnProperty(variation),
+    )
     : true;
 
   let selectedVariation = {};
@@ -131,7 +131,7 @@ export default function ProductPopup({ lang }) {
 
   function navigateToProductPage() {
     closeModal();
-    router.push(`/${lang}/${ROUTES.PRODUCT}/${slug}`);
+    router.push(`${ROUTES.PRODUCT}/${slug}`);
   }
 
   useEffect(() => setSelectedQuantity(1), [data.id]);
@@ -232,15 +232,14 @@ export default function ProductPopup({ lang }) {
                 {!isEmpty(selectedVariation) && (
                   <span className="text-sm font-medium text-yellow">
                     {selectedVariation?.is_disable ||
-                    selectedVariation.quantity === 0
+                      selectedVariation.quantity === 0
                       ? t('text-out-stock')
-                      : `${
-                          t('text-only') +
-                          ' ' +
-                          selectedVariation.quantity +
-                          ' ' +
-                          t('text-left-item')
-                        }`}
+                      : `${t('text-only') +
+                      ' ' +
+                      selectedVariation.quantity +
+                      ' ' +
+                      t('text-left-item')
+                      }`}
                   </span>
                 )}
               </div>
@@ -256,7 +255,7 @@ export default function ProductPopup({ lang }) {
                   disabled={
                     isInCart(item.id)
                       ? getItemFromCart(item.id).quantity + selectedQuantity >=
-                        Number(item.stock)
+                      Number(item.stock)
                       : selectedQuantity >= Number(item.stock)
                   }
                   lang={lang}
@@ -275,9 +274,8 @@ export default function ProductPopup({ lang }) {
                     variant="border"
                     onClick={addToWishlist}
                     loading={addToWishlistLoader}
-                    className={`group hover:text-brand ${
-                      favorite === true && 'text-brand'
-                    }`}
+                    className={`group hover:text-brand ${favorite === true && 'text-brand'
+                      }`}
                   >
                     {favorite === true ? (
                       <IoIosHeart className="text-2xl md:text-[26px] ltr:mr-2 rtl:ml-2 transition-all" />
@@ -290,20 +288,18 @@ export default function ProductPopup({ lang }) {
                   <div className="relative group">
                     <Button
                       variant="border"
-                      className={`w-full hover:text-brand ${
-                        shareButtonStatus === true && 'text-brand'
-                      }`}
+                      className={`w-full hover:text-brand ${shareButtonStatus === true && 'text-brand'
+                        }`}
                       onClick={handleChange}
                     >
                       <IoArrowRedoOutline className="text-2xl md:text-[26px] ltr:mr-2 rtl:ml-2 transition-all group-hover:text-brand" />
                       {t('text-share')}
                     </Button>
                     <SocialShareBox
-                      className={`absolute z-10 ltr:right-0 rtl:left-0 w-75 md:min-w-100 transition-all duration-300 ${
-                        shareButtonStatus === true
+                      className={`absolute z-10 ltr:right-0 rtl:left-0 w-75 md:min-w-100 transition-all duration-300 ${shareButtonStatus === true
                           ? 'visible opacity-100 top-full'
                           : 'opacity-0 invisible top-[130%]'
-                      }`}
+                        }`}
                       shareUrl={productUrl}
                       lang={lang}
                     />

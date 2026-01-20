@@ -9,13 +9,13 @@ import Heading from '@components/ui/heading';
 import Switch from '@components/ui/switch';
 import Text from '@components/ui/text';
 import { useTranslation } from 'src/app/i18n/client';
-import { 
-  useUpdateUserMutation, 
-  UpdateUserType 
+import {
+  useUpdateUserMutation,
+  UpdateUserType
 } from '@framework/customer/use-update-customer';
 
 const AccountDetails = ({ lang }) => {
-  const { t } = useTranslation(lang);
+  const { t } = useTranslation(lang, ['common', 'forms']);
   const { mutate: updateUser, isPending } = useUpdateUserMutation();
 
   const {
@@ -44,7 +44,7 @@ const AccountDetails = ({ lang }) => {
       <Heading variant="titleLarge" className="mb-5 md:mb-6 lg:mb-7 lg:-mt-1">
         {t('common:text-account-details-personal')}
       </Heading>
-      
+
       <form onSubmit={handleSubmit(onSubmit)} className="w-full mx-auto" noValidate>
         {/* Personal Information Section */}
         <div className="border-b border-border-base pb-7 md:pb-8 lg:pb-10">
@@ -136,7 +136,7 @@ const AccountDetails = ({ lang }) => {
               )}
             />
           </div>
-          
+
           <div className="flex items-center justify-between">
             <div className="ltr:pr-2.5 rtl:pl-2.5">
               <Heading className="mb-1 font-medium">{t('common:text-ads-performance')}</Heading>

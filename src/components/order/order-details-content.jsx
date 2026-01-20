@@ -11,7 +11,7 @@ export const OrderDetailsContent = ({ item }) => {
     <div className="relative grid grid-cols-12 py-2 pb-0 border-b border-solid border-border-base text-[12px] md:text-[14px]">
       <div className="self-center col-span-2">
         <Image
-          src={item?.image?.thumbnail}
+          src={item?.image?.thumbnail ?? item?.image ?? '/assets/placeholder/order-product.svg'}
           alt={item?.name || 'Product Image'}
           width="60"
           height="60"

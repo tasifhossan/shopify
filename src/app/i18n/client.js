@@ -1,46 +1,32 @@
 'use client';
 
 import i18next from 'i18next';
-import { useEffect } from 'react';
 import {
     initReactI18next,
     useTranslation as useTranslationOrg,
 } from 'react-i18next';
 import resourcesToBackend from 'i18next-resources-to-backend';
-import LanguageDetector from 'i18next-browser-languagedetector';
 import { getOptions } from './settings';
 
 const runsOnServerSide = typeof window === 'undefined';
 
-// on client side the normal singleton is ok
+// Initialize i18next with hardcoded English
 i18next
     .use(initReactI18next)
-    .use(LanguageDetector)
     .use(
         resourcesToBackend(
             (language, namespace) =>
-                import(`./locales/${language}/${namespace}.json`),
+                import(`./locales/en/${namespace}.json`), // Force import from 'en'
         ),
     )
     .init({
         ...getOptions(),
-        lng: undefined, // let detect the language on client side
-        detection: {
-            order: ['path', 'htmlTag', 'cookie', 'navigator'],
-        },
-        preload: runsOnServerSide ? getOptions().supportedLngs : [],
+        lng: 'en', // Force language to 'en'
+        detection: undefined,
+        preload: runsOnServerSide ? ['en'] : [],
     });
 
 export function useTranslation(lang, ns, options) {
-    const ret = useTranslationOrg(ns, options);
-    const { i18n } = ret;
-    // if (runsOnServerSide && i18n.resolvedLanguage !== lang) {
-    //   i18next.changeLanguage(lang);
-    // } else {
-    // }
-    useEffect(() => {
-        // if (i18n.resolvedLanguage === lang) return; // If enable this line, it doesn't change language on some portion
-        i18n.changeLanguage(lang);
-    }, [lang, i18n]);
-    return ret;
+    // We ignore the `lang` argument and use the hardcoded 'en'
+    return useTranslationOrg(ns, options);
 }

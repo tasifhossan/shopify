@@ -23,7 +23,7 @@ const HeroBannerWithCategory = ({
     <div className={`xl:flex md:pb-2.5 ${className}`}>
       {/* Category Sidebar - Hidden on mobile/tablet */}
       <div className="hidden xl:block shrink-0 ltr:pr-8 rtl:pl-8 xl:w-[320px] 2xl:w-92.5 pt-px">
-        <div className="flex flex-col justify-between h-full border rounded-md border-border-base">
+        <div className="flex flex-col justify-between h-full border rounded-md border-[#E7ECF0]">
           {data?.categories?.data
             ?.slice(0, 10)
             ?.map((category) => (
@@ -31,7 +31,7 @@ const HeroBannerWithCategory = ({
                 key={`category--key-${category.id}`}
                 category={category}
                 href={`${ROUTES.SEARCH}?category=${category.slug}`}
-                className="transition border-b border-border-base last:border-b-0"
+                className="transition border-b border-[#E7ECF0] last:border-b-0"
                 variant="small"
                 lang={lang}
               />

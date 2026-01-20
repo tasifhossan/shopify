@@ -12,12 +12,12 @@ function SidebarMenuItem({ className, item, depth = 0, lang }) {
         <>
             <li
                 className={`flex justify-between items-center transition ${className
-                        ? className
-                        : 'text-sm hover:text-brand px-3.5 2xl:px-4 py-2.5 border-b border-border-base last:border-b-0'
+                    ? className
+                    : 'text-sm hover:text-brand px-3.5 2xl:px-4 py-2.5 border-b border-border-base last:border-b-0'
                     }`}
             >
                 <Link
-                    href={`/${lang}${ROUTES.SEARCH}`}
+                    href={`${ROUTES.SEARCH}`}
                     className={cn(
                         'flex items-center w-full ltr:text-left rtl:text-right outline-none focus:outline-none focus:ring-0 focus:text-brand-dark',
                     )}

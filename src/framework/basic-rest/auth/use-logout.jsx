@@ -17,7 +17,7 @@ export const useLogoutMutation = (lang) => {
         onSuccess: (_data) => {
             Cookies.remove('auth_token');
             unauthorize();
-            router.push(`/${lang}`);
+            router.push(`/`);
         },
         onError: (data) => {
             console.log(data, 'logout error response');

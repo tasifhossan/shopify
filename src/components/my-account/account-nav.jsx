@@ -10,24 +10,25 @@ export default function AccountNav({ options, lang }) {
   const { t } = useTranslation(lang, 'common');
   const { mutate: logout } = useLogoutMutation(lang);
   const pathname = usePathname();
-  
+
   // Logic to determine active state based on URL segments
-  const newPathname = pathname.split('/').slice(3, 4);
-  const mainPath = `/${newPathname[0]}`;
+  const isActive = (slug) => {
+    return pathname === slug || pathname.endsWith(slug);
+  };
+
+  console.log('Path Debug v2:', { pathname });
 
   return (
     <nav className="flex flex-col pb-2 overflow-hidden border rounded-md md:pb-6 border-border-base">
       {options.map((item) => {
-        const menuPathname = item.slug.split('/').slice(2, 3);
-        const menuPath = `/${menuPathname[0]}`;
+        const active = isActive(item.slug);
 
         return (
           <Link
             key={item.slug}
-            href={`/${lang}${item.slug}`}
-            className={`flex items-center cursor-pointer text-sm lg:text-15px text-brand-dark py-3.5 px-3.5 xl:px-4 2xl:px-5 mb-1 ${
-              mainPath === menuPath ? 'bg-fill-base font-medium' : 'font-normal'
-            }`}
+            href={`${item.slug}`}
+            className={`flex items-center cursor-pointer text-sm lg:text-15px text-brand-dark py-3.5 px-3.5 xl:px-4 2xl:px-5 mb-1 ${active ? 'bg-gray-100 ' : 'font-normal'
+              }`}
           >
             <span className="flex justify-center w-9 xl:w-10 shrink-0">
               {item.icon}
@@ -36,7 +37,7 @@ export default function AccountNav({ options, lang }) {
           </Link>
         );
       })}
-      
+
       <button
         className="flex items-center text-sm lg:text-15px text-brand-dark py-3.5 px-3.5 xl:px-4 2xl:px-5 mb-1 cursor-pointer focus:outline-none"
         onClick={() => logout()}

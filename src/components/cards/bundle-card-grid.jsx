@@ -15,7 +15,7 @@ const BundleCardGrid = ({
   const { image, title } = bundle;
   const { t } = useTranslation(lang, 'common');
   return (
-    <Link href={`/${lang}${href}`} className={cn('group flex', className)}>
+    <Link href={`${href}`} className={cn('group flex', className)}>
       <div className="relative flex items-center w-full overflow-hidden">
         <div className="relative flex max-w-full shrink-0">
           <Image

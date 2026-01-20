@@ -69,10 +69,9 @@ const Breadcrumb = ({
         <BreadcrumbItems separator={separator}>
             {/* 1. FIXED HOME LINK: Removed legacyBehavior and <a> */}
             <ActiveLink
-                href={`${ROUTES.HOME}${lang}`}
+                href={`${ROUTES.HOME}`}
                 activeClassName="font-semibold text-heading"
                 className="inline-flex items-center"
-                lang={lang}
             >
                 <IoHomeOutline className="ltr:mr-1.5 rtl:ml-1.5 text-brand-dark text-15px" />
                 {t('breadcrumb-home')}
